@@ -1,4 +1,5 @@
 # See https://github.com/contextio/Python-ContextIO for a guide
+# this will be changed to flask syntax
 
 import requests
 import contextio as c

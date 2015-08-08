@@ -4,21 +4,64 @@
 		<meta charset="utf-8">
 		<title>Login here</title>
 		<link href="./style.css" rel="stylesheet">
-		<!-- this uses ractivejs see www.ractivejs.org -->
-		<script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="./userLogin.js"></script>
 	</head>
 	<body>
 	
-		<div class="form-wrapper">
-			<form action="../server/loginHandler.py" method="POST">
-				<input type="text" placeholder="username">
-				
-				<input type="email" placeholder="email">
-				
-				
-			</form>
-		</div>
+<div class="cont">
+  <div class="demo">
+    <div class="login">
+      <div class="login__check"></div>
+      <div class="login__form">
+        <div class="login__row">
+          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="text" class="login__input name" placeholder="First Name"/>
+        </div>
+        <div class="login__row">
+          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>
+          <input type="email" class="login__input pass" placeholder="Email"/>
+        </div>
+        <button type="button" class="login__submit">Sign in</button>
+        <p class="login__signup">Create an account by inputting your first name and email</p>
+      </div>
+    </div>
+    <div class="app">
+      <div class="app__top">
+        <div class="app__menu-btn">
+          <span></span>
+        </div>
+        <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
+          <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
+          <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
+        </svg>
+        <p class="app__hello">Good Morning!</p>
+        <div class="app__user">
+          <img src="http://i.imgur.com/joyWJEY.jpg" alt="" class="app__user-photo" />
+          <span class="app__user-notif">3</span>
+        </div>
+        <div class="app__month">
+          <span class="app__month-btn left"></span>
+          <p class="app__month-name">Success!</p>
+          <span class="app__month-btn right"></span>
+        </div>
+      </div>
+      <div class="app__bot">
+      	<p> Access has been granted</p>
+      	<p> Lets see that personality!</p>
+      </div>
+      <div class="app__logout">
+        <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
+          <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 	</body>

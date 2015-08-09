@@ -8,9 +8,16 @@ Dependencies:
 - Optional: could also set up a virtualenv
 
 Install the dependencies
+
 <pre>
 pip install contextio
 pip install flask
+</pre>
+
+Clone the app
+
+<pre>
+git clone https://github.com/ShrutiAppiah/Watson_Psychoanalysis.git
 </pre>
 
 Move to userLogin Directory

@@ -1,8 +1,13 @@
 # See https://github.com/contextio/Python-ContextIO for a guide
 # this will be changed to flask syntax
 
-import requests
+from flask import Flask, render_template, request, url_for
 import contextio as c
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+	return render_template('userLogin.html')
 
 # contextio key and secret key
 CONSUMER_KEY = 'l57sr7jp'
@@ -13,4 +18,5 @@ context_io = c.ContextIO(
     consumer_secret=CONSUMER_SECRET
 )
 
-requests.get
+if __name__ == '__main__':
+	app.run(debug=True)

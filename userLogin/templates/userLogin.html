@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Create an account here</title>
+		<link rel= "stylesheet" href= "{{ url_for('static',filename='style.css') }}">
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<!-- The Login form -->
+		<div class="cont">
+		  <div class="demo">
+		    <div class="login">
+		      <div class="login__check"></div>
+		      <div class="login__form">
+		        <div class="login__row">
+		          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+		            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+		          </svg>
+		          <input type="text" class="login__input name" placeholder="First Name"/>
+		        </div>
+		        <div class="login__row">
+		          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+		            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+		          </svg>
+		          <input type="email" class="login__input pass" placeholder="Email"/>
+		        </div>
+		        <button type="button" class="login__submit">Sign in</button>
+		        <p class="login__signup">Create an account by inputting your first name and email</p>
+		      </div>
+		    </div>
+		    <div class="app">
+		      <div class="app__top">
+		        <div class="app__menu-btn">
+		          <span></span>
+		        </div>
+		        <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
+		          <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
+		          <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
+		        </svg>
+		        <p class="app__hello">Hey there!</p>
+		        <div class="app__user">
+		          <img src="data:image/jpeg;base64,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" alt="doge" class="app__user-photo" />
+		          <span class="app__user-notif">yay</span>
+		        </div>
+		        <div class="app__month">
+		          <span class="app__month-btn left"></span>
+		          <p class="app__month-name">Success!</p>
+		          <span class="app__month-btn right"></span>
+		        </div>
+		      </div>
+		      <div class="app__bot">
+		      	<br>
+		      	<p> Access has been granted</p>
+		      	<p> Lets see that personality!</p>
+		      </div>
+		      <div class="app__logout">
+		        <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
+		          <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12"/>
+		        </svg>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<script type="text/javascript" src="{{ url_for('static', filename='userLogin.js') }}"></script>
+	</body>
+</html>

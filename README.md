@@ -7,6 +7,12 @@ Dependencies:
 - Flask
 - Optional: could also set up a virtualenv
 
+Install the dependencies
+<pre>
+pip install contextio
+pip install flask
+</pre>
+
 Move to userLogin Directory
 
 <pre>

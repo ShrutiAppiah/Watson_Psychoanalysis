@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
 	return render_template('userLogin.html')
 
-# contextio key and secret key
-CONSUMER_KEY = 'l57sr7jp'
-CONSUMER_SECRET = 'm0mRv5iaojsNWnvu'
+# contextio key and secret key ==> removed for security reasons
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
 
 context_io = c.ContextIO(
     consumer_key=CONSUMER_KEY, 

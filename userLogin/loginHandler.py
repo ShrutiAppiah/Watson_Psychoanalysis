@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
 	return render_template('userLogin.html')
 
+@app.route('/sendUserInfo', methods=['POST'])
+def sendUserInfo():
+	return render_template('userLogin.html')
+
 # contextio key and secret key
 CONSUMER_KEY = 'l57sr7jp'
 CONSUMER_SECRET = 'm0mRv5iaojsNWnvu'

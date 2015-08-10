@@ -17,6 +17,36 @@ $(document).ready(function() {
     $ripple.css({top: y, left: x});
     elem.append($ripple);
   };
+
+  function userInfoIsFilledOutProperly() {
+    var result = false;
+    if ( ($("#name").val() != "") && ($("#email").val()!="") ) {
+      result = true;
+    }
+    return result;
+  }
+
+  function sendUserInfoByAjax() {
+    if ( userInfoIsFilledOutProperly() == true) {
+      console.log("userInfo being sent");
+      var firstName = $("#name").val();
+      var email = $("#email").val();
+      var userInfo = "first name: " + firstName + "email: " + email;
+      $.ajax({
+        url: '/sendUserInfo',
+        data: data,
+        type: 'POST',
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    } else {
+      alert("Try again");
+    }
+  }
   
   $(document).on("click", ".login__submit", function(e) {
     if (animating) return;
@@ -24,6 +54,7 @@ $(document).ready(function() {
     var that = this;
     ripple($(that), e);
     $(that).addClass("processing");
+    sendUserInfoByAjax();
     setTimeout(function() {
       $(that).addClass("success");
       setTimeout(function() {

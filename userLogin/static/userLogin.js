@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  var loginIsValid = false;
   
   var animating = false,
       submitPhase1 = 1100,
@@ -27,7 +29,6 @@ $(document).ready(function() {
   }
 
   function sendUserInfoByAjax() {
-    if ( userInfoIsFilledOutProperly() == true) {
       console.log("userInfo being sent");
       var firstName = $("#name").val();
       var email = $("#email").val();
@@ -43,32 +44,38 @@ $(document).ready(function() {
           console.log(error);
         }
       });
-    } else {
-      alert("Try again");
     }
-  }
   
+  function checkIfloginIsValid() {
+    return loginIsValid;
+  }
+
   $(document).on("click", ".login__submit", function(e) {
     if (animating) return;
     animating = true;
     var that = this;
     ripple($(that), e);
     $(that).addClass("processing");
-    sendUserInfoByAjax();
-    setTimeout(function() {
-      $(that).addClass("success");
+    if ( userInfoIsFilledOutProperly() == true) {
+      sendUserInfoByAjax();
+      // moves to successful login screen
       setTimeout(function() {
-        $app.show();
-        $app.css("top");
-        $app.addClass("active");
-      }, submitPhase2 - 70);
-      setTimeout(function() {
-        $login.hide();
-        $login.addClass("inactive");
-        animating = false;
-        $(that).removeClass("success processing");
-      }, submitPhase2);
-    }, submitPhase1);
+        $(that).addClass("success");
+        setTimeout(function() {
+          $app.show();
+          $app.css("top");
+          $app.addClass("active");
+        }, submitPhase2 - 70);
+        setTimeout(function() {
+          $login.hide();
+          $login.addClass("inactive");
+          animating = false;
+          $(that).removeClass("success processing");
+        }, submitPhase2);
+      }, submitPhase1);
+    } else {
+      $('app__logout').html("<p>First name or email is invalid, please try again!");
+    }
   });
   
   $(document).on("click", ".app__logout", function(e) {
